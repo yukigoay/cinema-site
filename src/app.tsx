@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import viteLogo from '/vite.svg';
 import '@css/main.scss';
-import Welcome from './components/Welcome';
-import React from 'react';
-
+import Cinema from './components/cinema';
+import ProcessCinema from './components/process-cinema';
 function App() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-	return (
-		<Welcome></Welcome>
-	
-	);
+    return (
+        <div className="wrapper">
+            <Cinema></Cinema>
+            {/* <ProcessCinema></ProcessCinema> */}
+        </div>
+    );
 }
 
 export default App;

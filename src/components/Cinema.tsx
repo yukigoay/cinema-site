@@ -1,34 +1,64 @@
-import Zoom from "../img/icons/zoom-plus.png"
+import CinemaButton from './cinema-button';
+import CinemaIcon from './cinema-icon';
+import CinemaImage from './cinema-image';
+import Text from './atoms/text/text';
+import Image from './atoms/image/image';
+const Cinema = () => {
+    const cinemaList = [
+        {
+            location: 'Pavilion Bukit Jalil',
+            type: [
+                { nameType: 'Classic', imgpath: '/assets/type/classic.png' },
+                { nameType: 'Deluxe', imgpath: '/assets/type/deluxe.png' },
+                { nameType: 'Atmos', imgpath: '/assets/type/atmos.jpg' },
+                { nameType: 'Beanie', imgpath: '/assets/type/beanie.png' },
+            ],
+        },
+        // {
+        //     nameCinemaa: '1 Utama',
+        //     type: [
+        //         { nameType: 'Classic', imgpath: '/assets/type/classic.png' },
+        //         { nameType: 'Deluxe', imgpath: '/assets/type/deluxe.png' },
+        //         { nameType: 'Atmos', imgpath: '/assets/type/atmos.jpg' },
+        //         { nameType: 'Beanie', imgpath: '/assets/type/beanie.png' },
+        //     ],
+        // },
+    ];
+    return (
+        <div className="whole-container">
+            {cinemaList.map((cinema, i) => (
+                <div className="top-container">
+                    <div className="text-container">
+                        <Text
+                            label={cinema.location}
+                            size="h2"
+                            weight="bold"
+                            textTransform="capitalize"
+                        ></Text>
+                    </div>
 
-export default function Cinema() {
-    return ( 
-    <div className="container"> 
-        <div className="container-top">
-           <h2>TGV Pavilion Bukit Jalil</h2>
-           <div>
-            <p></p>
-           </div>
-           <img src={Zoom} alt="Zoom Image" width={50} height={50} />
-        </div>
-        <div className="container-center">
-        <div className="container-center-left">
-            
-        </div>
-        <div className="container-center-right">
-            <div className="container-center-right top-col">
-            <h3></h3>
-            <a></a>
-            </div>
-            <div className="container-center-right bottom-col">
-            <ul>
-            <li>
-                <a></a>
-            </li>
-            </ul>
-            </div>
-        </div>
-        </div>
+                    <div className="icon-cinema-container">
+                        {cinema.type.map((index, i) => (
+                            <div className="icon-cinema">
+                                <Image imgpath={index.imgpath}></Image>
+                            </div>
+                        ))}
+                    </div>
 
-    </div>
-)   
-}
+                    <div className="icon-container">
+                        <p> +</p>
+                    </div>
+                </div>
+            ))}
+
+            <div className="bottom-container">
+                <CinemaImage></CinemaImage>
+                <div className="right-container">
+                    <CinemaIcon></CinemaIcon>
+                    <CinemaButton></CinemaButton>
+                </div>
+            </div>
+        </div>
+    );
+};
+export default Cinema;
