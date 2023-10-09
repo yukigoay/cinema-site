@@ -33,7 +33,7 @@ const CinemaButton = () => {
                                 <Button
                                     label={slot}
                                     weight="bold"
-                                    location="/process-cinema"
+                                    location="/header-cinema"
                                 ></Button>
                             </div>
                         ))}
