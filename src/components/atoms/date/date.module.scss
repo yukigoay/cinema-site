@@ -1,0 +1,40 @@
+.moviedateContainer {
+    background-color: #141415;
+
+    p {
+        color: rgba(255, 255, 255, 0.40);
+        margin: 0px;
+    }
+
+    .dateContainer {
+        display: flex;
+       
+        .dateWrapper {
+            padding-bottom: 20px;
+            margin: 15px 30px 0px ;
+            border-bottom: 2px rgba(255, 255, 255, 0.40) solid; 
+
+            p {
+                line-height: 25px;
+            }
+
+            .weekday {
+                display: flex;
+                justify-content: center;
+            } 
+
+            .lowerContainer {   
+                display: flex;
+            }
+
+            &:hover {
+                border-bottom: 5px red solid;
+
+                p {
+                    color:white;
+                }
+            }
+        }
+    }
+   
+}

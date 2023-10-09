@@ -1,0 +1,45 @@
+.headerContainer {
+    background-color: black;
+    display: flex;
+
+    .leftContainer {
+        display: flex;
+        
+        .headerImg {
+            width: 30%; 
+            margin: auto;
+        }
+
+        .menuContainer {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto ;
+            gap: 30px;
+
+            p {  
+                color: white;
+                margin: auto;
+            }
+        }
+    }
+
+    .rightContainer {
+        display: flex;
+        margin:auto 50px;
+
+        .clubContainer {
+           margin: auto;
+        }
+
+        .loginContainer {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+            margin-left: 30px;
+
+            p {  
+                color: white;
+            }
+        }
+    }
+    
+}

@@ -1,6 +1,7 @@
-import { Fragment } from 'react';
-// import { Button } from '../stories/Button';
+import { Component, Fragment } from 'react';
 import Button from './atoms/button/button';
+import { Link } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 const CinemaButton = () => {
     const methodList = [
@@ -25,13 +26,17 @@ const CinemaButton = () => {
     return (
         <div className="bottom-right-container">
             {methodList.map((item, i) => (
-                <div className="movie-container">
+                <div key={i} className="movie-container">
                     <div className="movie-time">
                         {item.time.map((slot, i) => (
-                            <div className="movie-time-container">
-                                <Button label={slot} weight="bold"></Button>
+                            <div key={i} className="movie-time-container">
+                                <Button
+                                    label={slot}
+                                    weight="bold"
+                                    location="/process-cinema"
+                                ></Button>
                             </div>
-                        ))}{' '}
+                        ))}
                     </div>
                 </div>
             ))}

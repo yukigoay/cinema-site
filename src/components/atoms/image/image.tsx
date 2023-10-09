@@ -14,12 +14,29 @@ type ImageProps = {
     hoverpath?: string;
     onClick?: () => void;
     title?: string;
-
+    location?: string;
     desc?: string;
 };
 
-const Image = ({ imgpath, onClick, hoverpath, desc, title }: ImageProps) => {
-    return (
+const Image = ({
+    imgpath,
+    onClick,
+    hoverpath,
+    desc,
+    title,
+    location,
+}: ImageProps) => {
+    return location ? (
+        <div className={`${styles.mainImage}`}>
+            <Link to={location}>
+                <img
+                    className={`${styles.image}`}
+                    onClick={onClick}
+                    src={imgpath}
+                />
+            </Link>
+        </div>
+    ) : (
         <div className={`${styles.tooltipContainer}`}>
             <div className={`${styles.mainImage}`}>
                 <img

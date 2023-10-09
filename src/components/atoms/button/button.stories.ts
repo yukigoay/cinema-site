@@ -16,6 +16,9 @@ const meta = {
         href: {
             control: 'text',
         },
+        location: {
+            control: 'text',
+        },
         border: {
             control: 'select',
             options: ['solid', 'dotted', 'dashed', 'none'],

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Text from './atoms/text/text';
 import Image from './atoms/image/image';
+import Header from './atoms/header';
 const ProcessCinema = () => {
     const process = [
         {
@@ -18,33 +19,36 @@ const ProcessCinema = () => {
         },
     ];
     return (
-        <div className="top-container">
-            {process.map((item, i) => (
-                <div className="upper-container">
-                    <div className="image-container">
-                        <Image imgpath={item.imgsrc}></Image>
-                    </div>
-                    <div className="bottom-container">
-                        <div className="index-container">
-                            <Text
-                                backgroundColor="white"
-                                label={(i + 1).toString()}
-                            ></Text>
+        <div className="layout">
+            <Header />
+            <div className="top-container">
+                {process.map((item, i) => (
+                    <div className="upper-container">
+                        <div className="image-container">
+                            <Image imgpath={item.imgsrc}></Image>
                         </div>
-                        <div className="desc-container">
-                            <Text
-                                label={item.desc}
-                                textTransform="capitalize"
-                            ></Text>
-                        </div>
-                        {i >= 0 && i < 3 && (
-                            <div className="icon-container">
-                                <Image imgpath="/assets/right-arrow.png"></Image>
+                        <div className="bottom-container">
+                            <div className="index-container">
+                                <Text
+                                    backgroundColor="white"
+                                    label={(i + 1).toString()}
+                                ></Text>
                             </div>
-                        )}
+                            <div className="desc-container">
+                                <Text
+                                    label={item.desc}
+                                    textTransform="capitalize"
+                                ></Text>
+                            </div>
+                            {i >= 0 && i < 3 && (
+                                <div className="icon-container">
+                                    <Image imgpath="/assets/right-arrow.png"></Image>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };

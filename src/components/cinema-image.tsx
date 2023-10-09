@@ -1,5 +1,6 @@
 import Text from './atoms/text/text';
 import Image from './atoms/image/image';
+
 const CinemaImage = () => {
     const imageCinema = [
         {
@@ -21,7 +22,7 @@ const CinemaImage = () => {
     return (
         <div className="left-container">
             {imageCinema.map((item, i) => (
-                <div className="movie-image-text-container">
+                <div key={i} className="movie-image-text-container">
                     <div className="movie-image-container">
                         <Image imgpath={item.imagepath}></Image>
                     </div>

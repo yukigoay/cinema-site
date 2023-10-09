@@ -1,5 +1,6 @@
+import { Component, ElementType } from 'react';
 import styles from './button.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 type ButtonProps = {
     /**
@@ -16,7 +17,7 @@ type ButtonProps = {
      * Button border type
      */
     border?: string;
-
+    location?: string;
     /**
      * Button border type
      */
@@ -35,15 +36,31 @@ const Button = ({
     border = 'none',
     weight = 'light',
     onClick,
+    location,
 }: ButtonProps) => {
-    return href ? (
-        <a className={styles.button} href={href}>
+    const history = useHistory();
+
+    const handleClick = () => {
+        if (location) {
+            history.push(location);
+            console.log(history);
+        }
+
+        // if (onClick) {
+        //     onClick();
+        // }
+    };
+    return location ? (
+        <Link
+            className={`${styles.button} ${styles[border]} ${styles[weight]}`}
+            to={location}
+        >
             {label}
-        </a>
+        </Link>
     ) : (
         <button
             className={`${styles.button} ${styles[border]} ${styles[weight]}`}
-            onClick={onClick}
+            onClick={handleClick}
         >
             {label}
         </button>

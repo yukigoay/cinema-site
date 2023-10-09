@@ -4,15 +4,17 @@
     border-radius: 5px;
     cursor: pointer;
     padding: 8px 20px;
+    text-decoration: none;
 
     &:hover {
         color: #000;
         background-color: #fff;
     }
 }
-.none{
+.none {
     border:none;
 }
-.bold{
+
+.bold {
     font-weight: bold;
 }

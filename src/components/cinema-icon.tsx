@@ -52,7 +52,7 @@ const CinemaIcon = () => {
     return (
         <div className="upper-right-container">
             {method.map((item, i) => (
-                <div className="text-icon-container">
+                <div key={i} className="text-icon-container">
                     <div className="text-container">
                         <Text
                             label={item.type}
@@ -63,7 +63,7 @@ const CinemaIcon = () => {
                     </div>
                     <div className="wrap-icon-container">
                         {item.details.map((key, i) => (
-                            <div className="icon-container">
+                            <div key={i} className="icon-container">
                                 <Image
                                     title={key.detailsSeat}
                                     imgpath={key.imagesrc}
