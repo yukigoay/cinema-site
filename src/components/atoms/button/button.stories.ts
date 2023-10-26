@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MemoryRouter, MemoryRouterProps } from 'react-router-dom';
 import Button from './button';
 
 const meta = {
@@ -18,6 +17,9 @@ const meta = {
         },
         location: {
             control: 'text',
+        },
+        list: {
+            control: 'object',
         },
         border: {
             control: 'select',
@@ -51,5 +53,19 @@ export const ButtonTextBold: Story = {
         label: 'This is atoms button',
         border: 'none',
         weight: 'bold',
+    },
+};
+
+export const ConfirmationButton: Story = {
+    args: {
+        label: 'Confirmation',
+        confirmation: true,
+    },
+};
+
+export const ContinueButton: Story = {
+    args: {
+        label: 'Continue',
+        continueButton: true,
     },
 };

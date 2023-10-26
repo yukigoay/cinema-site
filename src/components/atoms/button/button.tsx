@@ -1,18 +1,22 @@
-import { Component, ElementType } from 'react';
 import styles from './button.module.scss';
-import { Link, useHistory } from 'react-router-dom';
+import { increment, setMessage } from '../../../redux/slice/data-slice';
+import { RootState } from '../../../redux/type';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 type ButtonProps = {
     /**
      * Button contents
      */
     label?: string;
-
+    list?: Array<string>;
     /**
      * Button as Link URL
      */
     href?: string;
+    continueButton?: boolean;
 
+    confirmation?: boolean;
     /**
      * Button border type
      */
@@ -32,35 +36,41 @@ type ButtonProps = {
 
 const Button = ({
     label,
-    href,
+    confirmation = false,
     border = 'none',
     weight = 'light',
     onClick,
     location,
+    continueButton = false,
 }: ButtonProps) => {
-    const history = useHistory();
+    const mode = confirmation ? 'buttonConfirmation' : '';
+    const enableContinue = continueButton ? 'buttonContinue' : '';
 
-    const handleClick = () => {
-        if (location) {
-            history.push(location);
-            console.log(history);
+    const dispatch = useDispatch();
+    const state = useSelector((state: RootState) => state.data);
+
+    const handleButtonClick = () => {
+        if (label) {
+            dispatch(setMessage({ ...state, message: label }));
+            dispatch(increment());
+        } else {
+            dispatch(increment());
         }
-
-        // if (onClick) {
-        //     onClick();
-        // }
     };
+
     return location ? (
         <Link
-            className={`${styles.button} ${styles[border]} ${styles[weight]}`}
+            className={`${styles.button} ${styles[border]} ${styles[weight]}
+            ${styles[mode]} ${styles[enableContinue]}`}
             to={location}
+            onClick={handleButtonClick}
         >
             {label}
         </Link>
     ) : (
         <button
-            className={`${styles.button} ${styles[border]} ${styles[weight]}`}
-            onClick={handleClick}
+            className={`${styles.button} ${styles[border]} ${styles[weight]}  ${styles[mode]} ${styles[enableContinue]}`}
+            onClick={handleButtonClick}
         >
             {label}
         </button>

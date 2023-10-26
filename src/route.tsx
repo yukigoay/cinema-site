@@ -1,19 +1,19 @@
-import HeaderCinema from './components/header-cinema';
+import { Route, Switch } from 'react-router-dom';
 import Layout from './components/layout';
-import { Route, Switch, Link } from 'react-router-dom';
-import ProcessCinema from './components/process-cinema';
+import SelectionCinema from './components/selection-cinema';
+
 
 const Router = () => {
     return (
         <Switch>
             <Route exact path="/">
+                {/* {<BeverageSelection/>} */}
+                {/* <Test /> */}
+                {/* <PurchaseContainer /> */}
                 <Layout />
             </Route>
-            <Route path="/process-cinema">
-                <ProcessCinema />
-            </Route>
-            <Route path="/header-cinema">
-                <HeaderCinema />
+            <Route path="/selection-cinema">
+                <SelectionCinema />
             </Route>
         </Switch>
     );

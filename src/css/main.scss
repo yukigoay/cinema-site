@@ -2,205 +2,327 @@ body {
     margin: 0px;
     background-color: #1a1a19;
     font-family: Arial, Helvetica, sans-serif;
+
     .wrapper {
-       
 
-            .layout{
-                display: block;
+        .layout {
+            display: block;
         
-                .header-container{
-                   
-                    .header-1-container{
-                        position: sticky;
-                        width: 100%;
-                        background-color: black;
-                        align-items: center;
-                        display: flex;
-                        justify-content: center;
-                    } 
+            .cinema-header-container {
+                position: sticky;
+                width: 100%;
+                background-color: black;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
 
-                    .header-2-container{
-                        width: 100%;
-                        background-color: #141415;
-                        align-items: center;
-                        display: flex;
-                        justify-content: center;
-                    }
-                } 
-                
-                .content-container{
-                    width: 100%;
-                   
-                    align-items: center;
-                    display: flex;
-                    justify-content: center;
-                  
-                    .top-container{
-                        display: flex;
-                        grid-column-gap:30px;
-                        
-                        .upper-container{
-                            display: block;
-            
-                            .image-container{
-                                justify-content: center;
-                                display: flex;
-                            }
-            
-                            .bottom-container{
-                                display: flex;
-                                align-items: center;
-            
-                                .index-container{
-                                    p{
-                                        color: black;
-                                    }
-                                }
-            
-                                p{
-                                    color: white;
-                                }
-            
-                                .icon-container{
-                                    p{
-                                        color: white;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .content{ 
-                        display: block;
-                        .whole-container{ 
-                            margin: auto;
-                            position: relative;
-                            background-color: black;
+            .cinema-date-container {
+                width: 100%;
+                background-color: #141415;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .content { 
+                display: block;
+
+                .cinema-container { 
+                    margin: auto;
+                    position: relative;
+                    width: 90%;
+                    
+                    .cinema {
+                         margin-bottom: 30px;   
+                         background-color: black;
+
+                         .cinema-accordian {
+                           
 
                             .accordian{
-                                margin: 20px 0px;
+                                margin: 20px 0px 0px;
                                 width: 100%;
+                                display: flex;
                                 justify-content: space-between;
                                 position: relative;
                                 background-color: black;
-                                .top-container{
-
-                                    // display: flex;
-                                    // align-items: center;
-                                    // justify-content: space-between;
-                                    // position: relative;
-                                    // background-color: black;
-                                    // margin: 30px 0px; 
-                
-                                    .text-container{
-                                        width: 30%;
-                                        margin-left: 30px;
-                                        
-                                            p{
-                                            width:100%;
-                                            font-size: 20px;
-                                        
-                                        }
-                                    }
+                                
+                                .accordian-text-container {
+                                    width: 40%;
+                                    margin-left: 30px;
                                     
-                                    .icon-cinema-container{
-                                        display:flex;
-                                        flex-wrap: wrap;
-                                        align-items: center;
-                                        justify-content: flex-start;
-                
-                                        .icon-cinema{
-                                            width: 80px;
-                                            margin-left: 20px;
-                                        }
-                                    }
-                
-                                    .icon-container{
-                                        margin-right:30px;
-                                        display: flex;
-                                        justify-content: end;
-                
-                                        p{
-                                            font-size: 40px;
-                                            margin: 0px;
-                                        }
+                                        p {
+                                        width:100%;
+                                        font-size: 20px;
+                                    
                                     }
                                 }
+
+                                .accordian-img-container {
+                                    display:flex;
+                                    flex-wrap: wrap;
+                                    align-items: center;
+                                    justify-content: flex-start;
+                                    width: 60%;
+            
+                                    .icon-cinema {
+                                        width: 100px;
+                                        margin-left: 20px;
+                                    }
+                                }
+
+                                .accordian-icon-container {
+                                    width: 5%;
+                                    display: flex;
+                                    justify-content: end;
+                                    align-items: center;
+            
+                                    p {
+                                        font-size: 40px;
+                                        margin: 0px;
+                                    }
+                                }
+
+
                             }
-                
-                            p,h4{
+                        }
+
+                        p,h4 {
                             color: white;
-                            }
+                        }
                 
-                            h4{
-                            font-size: 11px 
-                            }
-                
-                            .bottom-container{
-                                display: flex;
-                
-                                .left-container{
-                                    margin: 30px;
-                                    margin-right: 0px;
-                
-                                    .movie-image-container {
-                                        width: 150px;
-                                    }
-                
-                                    .movie-text-container{
-                                        width: max-content;    
-                                        margin-top: 8%;
-                
-                                        h4,p{
-                                            margin:0px;
-                                        }
+                        h4 {
+                        font-size: 11px 
+                        }
+
+                        .cinema-movie-image-container {
+                            display: flex;
+                            margin-bottom:30px ;
+
+                            .cinema-movie-image {
+                                margin: 30px;
+                                margin-right: 0px;
+
+                                .image-container {
+                                    width: 150px;
+                                }
+            
+                                .text-container {
+                                    width: max-content;    
+                                    margin-top: 8%;
+            
+                                    h4,p {
+                                        margin:0px;
                                     }
                                 }
+                            }
+
+                            .cinema-movie-icon-container {
+                                margin: 20px;
+
+                                .cinema-movie-icon {
+                                    margin-bottom: 20px;
+            
+                                    .text-container {
+                                            .text { 
                 
-                                .right-container{
-                                    margin: 20px;
-                
-                                    .upper-right-container{
-                                        margin-bottom: 20px;
-                
-                                        .text-container{
-                
-                                            h4{
+                                            h4 {
                                                 font-size: 12px;
                                                 margin:10px;
                                                 margin-left: 0px;
                                             }
+                                        } 
+                                    }
+                                   
+            
+                                    .icon-container {
+                                        display: flex;
+                                        
+                                        .icon {
+                                            width: 40px;
                                         }
-                
-                                        .wrap-icon-container {
-                                            display: flex;
-                                            
-                                            .icon-container {
-                                                width: 40px;
-                                            }
-                                        }
+                                    }
+                                }
+
+                                .cinema-movie-button {
+                                    display: flex;
+                                    column-gap: 20px;
+                                    row-gap: 30px;
+                                    flex-wrap: wrap;
+
+                                    .cinema-movie-button-container {
+                                        
                                     }
                                 }
                             }
                         }
                     }
-                } 
-            } 
-                
-    }
- 
-   
-}
-   .movie-container{
-        
-        .movie-time{
-            display: flex;
-            column-gap: 20px;
-            row-gap: 30px;
-            flex-wrap: wrap;
-        }
-    }    
+                }
+            }
 
- 
-h1 {
-color: #8873be;
+        }
+
+        .selection-cinema {
+            background-color: #141415;
+
+            p {
+                color: white;
+            }
+            
+            .selection-header {
+            
+                p {
+                    color: white;
+
+                }
+            }
+
+            .selection-button {
+                margin-top: 5%;
+                display: grid;
+                justify-content: center;
+             
+            }
+            
+            .selection-bottom {
+                width: 100%;
+                background: #000;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: 99;
+                display: flex;
+                justify-content: center;
+
+                .price-amount {
+                    display: flex;
+                    margin-right: 30px;
+                }
+
+                button {
+                    margin: 15px;
+                } 
+            }
+
+            .pop-confirmation{ 
+                display: flex;
+                width: 50%;
+                margin: auto;
+                background-color: black;
+                padding: 20px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 1px solid #ccc;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+
+            .pop-confirmation-container {
+                width: 80%;
+                margin: auto;
+
+                .top-container{
+                    border: 1px solid #2d2d2d;
+                    margin-bottom: 20px;
+                }
+
+                .voucher-container{
+                    border:1px solid #2d2d2d; ;
+                }
+               
+                }
+            }
+        }
+    }
+}
+
+.purchase-container {
+    background-color: #292929;
+    padding: 15px 100px;
+
+    p {
+        color: white;
+        padding-left: 20px;
+        margin-top: 0px;
+        
+
+        &:last-child {
+            text-align: end;
+            padding-right: 20px;
+        }
+    }
+
+    .purchase-title {
+        p {
+            color: red;
+            text-align: start;
+        }
+    }
+
+    .subtotal-amount {
+        padding:12px 0px;
+        border-top: 1px solid #7e7e7f;
+        border-bottom: 1px solid #7e7e7f;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        p {
+            color: #7e7e7f;
+        margin: auto 0%;
+        }
+       
+    }
+    .purchase-seat { 
+        margin: 50px 0px 30px;
+       
+        .purchase-seat-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            p {
+                &:last-child {
+                    text-align: right;
+                    
+                }
+            }
+           
+        } 
+       
+    }
+
+    .purchase-food { 
+       
+        .purchase-food-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        } 
+    }
+
+    .purchase-process-amount {
+
+        p {
+            color: white;
+        }
+
+        .subtotal-amount {
+            border: none;
+        }
+    }
+
+    .purchase-amount {
+        background-color: #1a1a19;
+
+        .subtotal-amount {
+            border: none;
+
+            p {
+                color: white;
+                &:last-child {
+                    color: red;
+                }
+            }
+        }
+    }
 }

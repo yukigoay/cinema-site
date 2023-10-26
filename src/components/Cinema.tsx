@@ -1,30 +1,24 @@
-import CinemaButton from './cinema-button';
-import CinemaIcon from './cinema-icon';
-import CinemaImage from './cinema-image';
+import CinemaMovieContainer from './cinema-movie-container';
 import CinemaAccordian from './cinema-accordian';
+import { RootState } from '../redux/type';
+import { useSelector } from 'react-redux';
 
 const Cinema = () => {
-    // {
-    //     nameCinemaa: '1 Utama',
-    //     type: [
-    //         { nameType: 'Classic', imgpath: '/assets/type/classic.png' },
-    //         { nameType: 'Deluxe', imgpath: '/assets/type/deluxe.png' },
-    //         { nameType: 'Atmos', imgpath: '/assets/type/atmos.jpg' },
-    //         { nameType: 'Beanie', imgpath: '/assets/type/beanie.png' },
-    //     ],
-    // },
-
+    const { cinemaData, expData, locationData } = useSelector(
+        (state: RootState) => state.mongo
+    );
     return (
-        <div className="whole-container">
-            <CinemaAccordian />
-            <div className="bottom-container">
-                <CinemaImage />
-                <div className="right-container">
-                    <CinemaIcon />
-                    <CinemaButton />
+        <div className="cinema-container">
+            {locationData.map((location: any) => (
+                <div className="cinema">
+                    <CinemaAccordian locationData={location.location} />
+                    <div className="cinema">
+                        <CinemaMovieContainer />
+                    </div>
                 </div>
-            </div>
+            ))}
         </div>
     );
 };
+
 export default Cinema;

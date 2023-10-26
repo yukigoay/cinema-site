@@ -1,5 +1,4 @@
 import styles from './text.module.scss';
-import { Link } from 'react-router-dom';
 
 type TextProps = {
     /**
@@ -29,7 +28,7 @@ type TextProps = {
     /**
      * Optional click handler
      */
-
+    type?: boolean;
     onClick?: () => void;
 };
 

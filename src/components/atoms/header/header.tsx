@@ -1,5 +1,4 @@
 import styles from './header.module.scss';
-import { Link } from 'react-router-dom';
 import Image from '../image/image';
 import Text from '../text/text';
 
