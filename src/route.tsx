@@ -15,6 +15,7 @@ const Router = () => {
             <Route path="/selection-cinema">
                 <SelectionCinema />
             </Route>
+            
         </Switch>
     );
 };

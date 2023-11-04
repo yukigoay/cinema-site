@@ -21,6 +21,10 @@ export default defineConfig({
                 find: '@stories',
                 replacement: path.resolve(__dirname, 'src/stories'),
             },
+            {
+                find: '@api',
+                replacement: path.resolve(__dirname, './api'),
+            },
         ],
     },
 });

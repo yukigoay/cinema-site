@@ -10,15 +10,6 @@ const CinemaHeader = () => {
         'eshop',
     ];
     const loginItem = ['join now', 'sign in '];
-    const weekday = [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-    ];
 
     return (
         <div className="cinema-header-container">

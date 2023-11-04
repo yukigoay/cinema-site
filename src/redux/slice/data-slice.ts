@@ -1,17 +1,7 @@
 // dataSlice.ts
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface DataState {
-    message: string;
-    date: any;
-    month: any;
-    weekday: any;
-    location: string;
-    year: string;
-    counter: number;
-}
-
-const initialState: DataState = {
+const initialState = {
     message: '',
     date: '',
     month: '',

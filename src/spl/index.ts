@@ -16,3 +16,4 @@ export const fetchJsonData = async (jsonFile: RequestInfo | URL) => {
 export const getExp = () => fetchJsonData('http://localhost:8081/api/exp');
 export const getCinema = () => fetchJsonData('http://localhost:8081/api/data');
 export const getLocation = () => fetchJsonData('http://localhost:8081/api/loc');
+export const getSeat = () => fetchJsonData('http://localhost:8081/api/seat');

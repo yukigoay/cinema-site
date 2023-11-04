@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/type';
 import ProcessCinema from './process-cinema';
 import SelectionBottom from './selection-bottom';
 import SelectionButton from './selection-button';
@@ -8,8 +6,7 @@ import FoodSelection from './food-selection';
 import PurchaseContainer from './purchase-container';
 
 const SelectionCinema = () => {
-    const counter = useSelector((state: RootState) => state.data.counter);
-
+    const counter = 1;
     const displayTab = () => {
         if (counter === 1) {
             return <SelectionButton />;

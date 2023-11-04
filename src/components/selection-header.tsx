@@ -3,10 +3,18 @@ import { RootState } from '../redux/type';
 import Header from './atoms/header';
 
 const SelectionHeader = () => {
-    const data = useSelector((state: RootState) => state.data);
+    const data = useSelector(
+        (state: RootState) => state.locationReducer.selectedData[0]
+    );
     let arr: string[] = [];
     let str = `${data.date} ${data.month} ${data.year} `;
-    arr.push(data.location.toString(), data.message, str);
+    arr.push(
+        data.selectedTime.toString(),
+        data.selectedDate.toString(),
+        data.selectedMovie.title.toString(),
+        data.selectedHall.type.toString(),
+        data.selectedLocation.toString()
+    );
 
     return (
         <div className="selection-header">

@@ -37,6 +37,14 @@ body {
                          margin-bottom: 30px;   
                          background-color: black;
 
+                         .show {
+                            display: block;
+                         }
+
+                         .hidden {
+                            display: none;
+                         }
+
                          .cinema-accordian {
                            
 
@@ -99,17 +107,18 @@ body {
                         .cinema-movie-image-container {
                             display: flex;
                             margin-bottom:30px ;
+                            max-width:150px;
 
                             .cinema-movie-image {
                                 margin: 30px;
                                 margin-right: 0px;
 
                                 .image-container {
-                                    width: 150px;
+                                    width: 180px;
                                 }
             
                                 .text-container {
-                                    width: max-content;    
+                                     
                                     margin-top: 8%;
             
                                     h4,p {
@@ -120,6 +129,8 @@ body {
 
                             .cinema-movie-icon-container {
                                 margin: 20px;
+                                width: 100%;
+                                position: relative;;
 
                                 .cinema-movie-icon {
                                     margin-bottom: 20px;
@@ -144,17 +155,17 @@ body {
                                         }
                                     }
                                 }
-
-                                .cinema-movie-button {
+                                .cinema-movie-button-container {
                                     display: flex;
-                                    column-gap: 20px;
+                                    
                                     row-gap: 30px;
-                                    flex-wrap: wrap;
-
-                                    .cinema-movie-button-container {
-                                        
-                                    }
+                                  
+                                    .cinema-movie-button {
+                                        display: flex;
+                                        column-gap: 50px;
+                                    }                         
                                 }
+                                
                             }
                         }
                     }
@@ -182,6 +193,19 @@ body {
                 margin-top: 5%;
                 display: grid;
                 justify-content: center;
+               
+                .selection-button-row {
+                    display: flex;
+                    margin-top:5%;
+                }
+
+                .selection-button-col {
+                     display: flex;
+                     
+                     .empty-space {
+                        max-width: 50%;
+                     }
+                }
              
             }
             

@@ -1,13 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CinemaDate from './cinema-date';
 import Content from './content';
 import Header from './cinema-header';
-
-import { getData } from './utils';
+import { useEffect } from 'react';
+import { fetchLocationList } from '../redux/slice/location-slice';
 
 const Layout = () => {
-    getData();
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchLocationList());
+    }, []);
     return (
         <div className="layout">
             <Header />
