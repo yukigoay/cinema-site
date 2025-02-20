@@ -13,7 +13,11 @@ export const fetchJsonData = async (jsonFile: RequestInfo | URL) => {
     }
 };
 
-export const getExp = () => fetchJsonData('http://localhost:8081/api/exp');
-export const getCinema = () => fetchJsonData('http://localhost:8081/api/data');
-export const getLocation = () => fetchJsonData('http://localhost:8081/api/loc');
+export const expDataUrl = 'http://localhost:8081/api/exp';
+export const cinemaDataUrl = 'http://localhost:8081/api/data';
+export const locationDataUrl = 'http://localhost:8081/api/loc';
+
+export const getExp = () => fetchJsonData(expDataUrl);
+export const getCinema = () => fetchJsonData(cinemaDataUrl);
+export const getLocation = () => fetchJsonData(locationDataUrl);
 export const getSeat = () => fetchJsonData('http://localhost:8081/api/seat');

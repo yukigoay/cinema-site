@@ -15,7 +15,7 @@ const Accordian = ({
     imgpath,
     label,
 
-    onClick,
+
 }: AccordianProps) => {
     function handleItemClick(label: string | undefined): void {
         throw new Error('Function not implemented.');

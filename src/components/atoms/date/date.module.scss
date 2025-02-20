@@ -34,6 +34,15 @@
                     color:white;
                 }
             }
+           
+        }
+
+        .selected {
+            border-bottom: 5px red solid;
+
+            p {
+                color:white;
+            }
         }
     }
    

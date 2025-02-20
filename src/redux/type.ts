@@ -10,10 +10,11 @@ export type RootState = {
         message: string; // Adjust the type based on your actual data structure
         counter: number;
     };
-
+    seat: [];
     location: {
-        locationList: any;
-        selectedData: any;
+        currentState: string;
+        locationList: object;
+        selectedData: object;
         status: 'idle'; // Possible values: 'idle', 'loading', 'succeeded', 'failed'
         error: null;
     };

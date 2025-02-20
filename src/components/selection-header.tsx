@@ -4,10 +4,10 @@ import Header from './atoms/header';
 
 const SelectionHeader = () => {
     const data = useSelector(
-        (state: RootState) => state.locationReducer.selectedData[0]
+        (state: any) => state.locationReducer.selectedData
     );
     let arr: string[] = [];
-    let str = `${data.date} ${data.month} ${data.year} `;
+    // let str = `${data.date} ${data.month} ${data.year} `;
     arr.push(
         data.selectedTime.toString(),
         data.selectedDate.toString(),

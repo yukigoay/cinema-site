@@ -1,6 +1,5 @@
+import { on } from 'events';
 import styles from './button.module.scss';
-import { setData } from '../../../redux/slice/location-slice';
-import { RootState } from '../../../redux/type';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +7,7 @@ type ButtonProps = {
     /**
      * Button contents
      */
-    anotherInfo?: any[];
-    label?: string;
+    label: string;
     list?: Array<string>;
     /**
      * Button as Link URL
@@ -41,25 +39,15 @@ const Button = ({
     border = 'none',
     weight = 'light',
     onClick,
-    type,
     location,
-    anotherInfo = [],
     continueButton = false,
 }: ButtonProps) => {
     const mode = confirmation ? 'buttonConfirmation' : '';
     const enableContinue = continueButton ? 'buttonContinue' : '';
 
-    const dispatch = useDispatch();
-    const state = useSelector((state: RootState) => state.location);
-
     const handleButtonClick = () => {
-        if (type) {
-            const newData = {
-                label,
-                type,
-                anotherInfo,
-            };
-            dispatch(setData(newData));
+        if (onClick) {
+            onClick();
         }
     };
 

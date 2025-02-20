@@ -4,16 +4,25 @@ import SelectionButton from './selection-button';
 import SelectionHeader from './selection-header';
 import FoodSelection from './food-selection';
 import PurchaseContainer from './purchase-container';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import PopupConfirmation2 from './popup-confirmation2';
+import PaymentConfirmation from './payment-confirmation';
 
 const SelectionCinema = () => {
-    const counter = 1;
+    const cState = useSelector(
+        (state: any) => state.locationReducer.userCurrentState
+    );
     const displayTab = () => {
-        if (counter === 1) {
-            return <SelectionButton />;
-        } else if (counter === 2) {
-            return <FoodSelection />;
-        } else if (counter === 3) {
-            return <PurchaseContainer />;
+        switch (cState) {
+            case 1:
+                return <SelectionButton />;
+            case 2:
+                return <FoodSelection />;
+            case 3:
+                return <PurchaseContainer />;
+            case 4:
+                return <PaymentConfirmation />;
         }
     };
 
@@ -23,8 +32,6 @@ const SelectionCinema = () => {
             <ProcessCinema />
 
             {displayTab()}
-            {/* <PopupConfirmation /> */}
-            <SelectionBottom />
         </div>
     );
 };

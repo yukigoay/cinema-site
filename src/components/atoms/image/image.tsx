@@ -1,12 +1,11 @@
 import styles from './image.module.scss';
 import { Link } from 'react-router-dom';
 import Text from '../text/text';
+import { useState } from 'react';
 
 type ImageProps = {
-    /**
-     * Image path
-     */
     imgpath?: string;
+    imgpath1?: string;
 
     /**
      * Optional click handler
@@ -20,19 +19,23 @@ type ImageProps = {
 
 const Image = ({
     imgpath,
-    onClick,
+    imgpath1,
     hoverpath,
     desc,
     title,
     location,
 }: ImageProps) => {
+    const [isImageOne, setIsImageOne] = useState(true); // State to track which image to display
+    const onClick = () => {
+        setIsImageOne((prevValue) => !prevValue);
+    };
     return location ? (
         <div className={`${styles.mainImage}`}>
             <Link to={location}>
                 <img
                     className={`${styles.image}`}
-                    onClick={onClick}
-                    src={imgpath}
+                    onClick={() => onClick()}
+                    src={isImageOne ? imgpath : imgpath1}
                 />
             </Link>
         </div>
@@ -41,8 +44,8 @@ const Image = ({
             <div className={`${styles.mainImage}`}>
                 <img
                     className={`${styles.image}`}
-                    onClick={onClick}
-                    src={imgpath}
+                    onClick={() => onClick()}
+                    src={isImageOne ? imgpath : imgpath1}
                 />
             </div>
             {hoverpath && desc && title && (

@@ -3,7 +3,52 @@ body {
     background-color: #1a1a19;
     font-family: Arial, Helvetica, sans-serif;
 
+    .text-container {
+        p {
+            color: white;
+        }
+    }
+   
+
     .wrapper {
+
+
+        .cinema-list-container {
+            color: white;
+
+            .state {
+                text-transform: uppercase;
+            }
+        }
+
+        .accordion-container {
+            color: white;
+
+           .drop-down-item.active {
+                background: rgba(0, 0, 0, 0.2);
+           }
+
+        }
+
+        .seat {
+
+        }
+        .accordion-header {
+          
+
+            .accordion-svg {
+                width: 24px;
+                height: 24px;
+                display: flex;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill:white;
+                }
+
+            }
+        }
 
         .layout {
             display: block;
@@ -29,6 +74,7 @@ body {
                 display: block;
 
                 .cinema-container { 
+                    display: flex;
                     margin: auto;
                     position: relative;
                     width: 90%;
@@ -202,9 +248,37 @@ body {
                 .selection-button-col {
                      display: flex;
                      
-                     .empty-space {
-                        max-width: 50%;
+                     .empty-seat {
+                        min-width:30px
                      }
+                     .seat {
+                        width: 30px;
+                       margin: 3px;
+                       transition: .3s;
+
+                        a {
+                            img {
+                                &:hover {
+                                    margin-bottom: 5px;
+                                } 
+                             }    
+                        }
+                      
+                     } 
+                }
+                .maximum-selection {
+                    display: flex;
+                    max-width: 50%;
+                    margin: auto;
+                    background-color: black;
+                    padding: 20px;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    border: none;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                    z-index: 1000;
                 }
              
             }
@@ -257,6 +331,18 @@ body {
                 }
                
                 }
+            }
+
+            .beverage-selection {
+
+                .pop-confirmation {
+                    background-color: #000;
+
+                    p {
+                        color: #ccc;
+                    }
+                }
+
             }
         }
     }

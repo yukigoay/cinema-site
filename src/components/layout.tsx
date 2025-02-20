@@ -1,21 +1,16 @@
-import { useDispatch } from 'react-redux';
 import CinemaDate from './cinema-date';
-import Content from './content';
+import Cinema from './cinema1';
 import Header from './cinema-header';
-import { useEffect } from 'react';
-import { fetchLocationList } from '../redux/slice/location-slice';
 
 const Layout = () => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchLocationList());
-    }, []);
     return (
         <div className="layout">
             <Header />
             <CinemaDate />
             <div className="content-container">
-                <Content />
+                <div className="content ">
+                    <Cinema />
+                </div>
             </div>
         </div>
     );

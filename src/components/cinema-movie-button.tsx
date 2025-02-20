@@ -1,22 +1,36 @@
 import Button from './atoms/button/button';
+import {
+    setSelectedTime,
+    setSelectedMovieInfo,
+} from '../redux/slice/location-slice';
+import { useDispatch } from 'react-redux';
 
 const CinemaMovieButton = ({ time, movieIdex, expId, seatId }: any) => {
     const timeDisplay = checktime(time);
-    const movie = movieIdex.movie;
-    const experience = expId.experience;
-    const seat = seatId.seat;
-    const dataDetails = { movie, experience, seat };
+    const dispatch = useDispatch();
+
+
+    const data = {
+        movie: movieIdex.movie,
+        experience: expId.experience,
+        seat: seatId.seat,
+        userState: 'selection',
+    };
+    const handleClick = (time: any) => {
+        dispatch(setSelectedTime(time));
+        dispatch(setSelectedMovieInfo(data));
+    };
     return (
         <div className="cinema-movie-button">
             {timeDisplay?.length &&
                 timeDisplay.map((item: any) => (
-                    <div className="button">
+                    <div className="button" key={item}>
                         <Button
                             label={item}
                             weight="bold"
-                            location="/selection-cinema"
                             type="time"
-                            anotherInfo={dataDetails}
+                            location="/selection-cinema"
+                            onClick={() => handleClick(item)}
                         ></Button>
                     </div>
                 ))}

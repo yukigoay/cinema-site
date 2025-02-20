@@ -1,7 +1,7 @@
 import Text from './atoms/text/text';
 import Image from './atoms/image/image';
 
-const CinemaMovieImage = ({ src, title, language }: any) => {
+const CinemaMovieImage = ({ title, language,duration }: any) => {
     const createImgPath = (titleMovie: string) => {
         let filename =
             `/assets/movie/` +
@@ -23,6 +23,7 @@ const CinemaMovieImage = ({ src, title, language }: any) => {
                         textTransform="uppercase"
                         weight="bold"
                     ></Text>
+                    <Text label={duration} textTransform="capitalize"></Text>
                     <Text label={language} textTransform="capitalize"></Text>
                 </div>
             </div>

@@ -3,16 +3,21 @@ import { getLocation } from '../../spl';
 
 const initialState = {
     locationList: [],
-    selectedData: [
-        {
-            selectedTime: '',
-            selectedMovie: {},
-            selectedDate: '',
-            selectedHall: [],
-            selectedLocation: '',
-            selectedSeat: [],
-        },
-    ],
+    selectedData: {
+        selectedTime: '',
+        selectedDate: '',
+        selectedState: '',
+        selectedLocation: '',
+        selectedMovie: {},
+
+        selectedHall: {},
+
+        selectedSeat: [],
+        selectedFood: 0,
+        selectedPrice: 0,
+    },
+    userCurrentState: 1,
+    seatData: [],
     status: 'idle', // Possible values: 'idle', 'loading', 'succeeded', 'failed'
     error: null,
 };
@@ -22,7 +27,6 @@ export const fetchLocationList = createAsyncThunk(
     async (_, { getState }) => {
         const currentState: any = getState();
         const cachedData = currentState.locationReducer.locationList; // Use "location" instead of "locationReducer"
-        console.log(cachedData);
         if (Object.keys(cachedData).length > 0) {
             return { location_list: cachedData };
         }
@@ -36,29 +40,44 @@ export const locationSlice = createSlice({
     initialState,
     reducers: {
         setData: (state, action) => {
-            if (action.payload.anotherInfo) {
-                state.selectedData[0].selectedMovie =
-                    action.payload.anotherInfo.movie;
-                state.selectedData[0].selectedHall =
-                    action.payload.anotherInfo.experience;
-                state.selectedData[0].selectedSeat =
-                    action.payload.anotherInfo.seat;
-            }
-
             switch (action.payload.type) {
-                case 'time':
-                    state.selectedData[0].selectedTime = action.payload.label;
+                case 'price':
+                    state.selectedData.selectedPrice =
+                        action.payload.anotherInfo.price;
+                    state.userCurrentState =
+                        action.payload.anotherInfo.userState;
                     break;
-                case 'date':
-                    state.selectedData[0].selectedDate = action.payload.label;
-                    break;
-                case 'location':
-                    state.selectedData[0].selectedLocation =
-                        action.payload.label;
-                    break;
+            }
+            if (action.payload.anotherInfo) {
+                if (action.payload.anotherInfo?.seatname) {
+                }
+                if (action.payload.anotherInfo.userState) {
+                    state.userCurrentState =
+                        action.payload.anotherInfo.userState;
+                }
             }
 
             // Update the state based on the action's payload
+        },
+        setLocation: (state, action) => {
+            state.selectedData.selectedLocation = action.payload;
+        },
+        setSelectedState: (state, action) => {
+            state.selectedData.selectedState = action.payload;
+        },
+        setSelectedTime: (state, action) => {
+            state.selectedData.selectedTime = action.payload;
+        },
+        setSelectedMovieInfo: (state, action) => {
+            state.selectedData.selectedMovie = action.payload.movie;
+            state.selectedData.selectedHall = action.payload.experience;
+            state.seatData = action.payload.seat;
+        },
+        setSelectedSeat: (state, action) => {
+            state.selectedData.selectedSeat = action.payload;
+        },
+        setUserState: (state) => {
+            state.userCurrentState = state.userCurrentState + 1;
         },
     },
     extraReducers: (builder) => {
@@ -75,5 +94,14 @@ export const locationSlice = createSlice({
         });
     },
 });
-export const { setData } = locationSlice.actions;
+export const {
+    setData,
+    setLocation,
+    setSelectedState,
+    setSelectedTime,
+    setSelectedMovieInfo,
+    setSelectedSeat,
+    setUserState,
+    removeData,
+} = locationSlice.actions;
 export default locationSlice.reducer;
